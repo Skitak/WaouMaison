@@ -5,11 +5,20 @@
 		<form method="post" action="" id="inscription">
 		<fieldset>
 			<legend>Inscription:</legend>
-				<div class="champ"><p>Nom:<br></p><input type="text" name="Name"></div>
-				<div class="champ"><p>Nom:<br></p><input type="text" name="Login"></div>
-				<div class="champ"><p>Nom:<br></p><input type="text" name="Password"></div>
+				<div class="champ"><p>Type d'appartement:<br></p><input type="text" name="Name"></div>
+				<div class="champ"><p>Adresse:<br></p><input type="text" name="Login"></div>
+				<div class="champ"><p>Montant:<br></p><input type="number" name="Password"></div>
 				<input type="submit" value="Envoyer">
 			</fieldset>
 		</form>
 	</div>
 <jsp:include page="footer.jsp" />
+
+<!--
+TypeAppart VARCHAR2(6),
+	Adresse VARCHAR2(75), 
+	MontantVente NUMBER (10,2),
+	DatePublication Date,
+	DateValidation Date,
+	AgentValidateur VARCHAR2(20),
+	LoginProp VARCHAR2(20), -->
