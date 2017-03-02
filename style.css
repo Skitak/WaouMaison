@@ -1,0 +1,22 @@
+body {
+	display:flex;
+	background-color:crimson;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+	justify-content: space-between;
+	}
+
+header {
+	display:flex;
+	background-color:white;
+	justify-content: center;
+	width: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+
+footer {
+	display:flex;
+	justify-content: space-around;
+}
