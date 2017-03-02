@@ -32,3 +32,21 @@ footer {
 	padding: 0px;
 	margin: 0px;
 }
+
+#body{
+	width: 100%;
+	display:flex;
+	flex-direction: column;
+	justify-content:center;
+	align-items: center;
+}
+
+form{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.champ {
+	padding: 20px;
+}
