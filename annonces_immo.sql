@@ -1,16 +1,3 @@
-REM *************************************************
-REM *******       Annonces Immobilières       *******
-REM *******     Copyright © 2017 Ouziri       *******
-REM *************************************************
-
-SET FEEDBACK OFF
-
-PROMPT
-PROMPT ************************************************************
-PROMPT
-PROMPT -> CREATION DE LA BASE DE DONNEES << VENTE D APPARTEMENTS >> 
-PROMPT
-
 DROP TABLE UTILISATEURS CASCADE CONSTRAINTS purge;
 DROP TABLE APPARTEMENTS CASCADE CONSTRAINTS purge;
 DROP SEQUENCE NUMERO_APPART;
@@ -40,19 +27,7 @@ CREATE TABLE APPARTEMENTS (
 
 CREATE SEQUENCE NUMERO_APPART START WITH 0 MINVALUE 0 INCREMENT BY 1;
 
-PROMPT  ->  Tables creees
-
 INSERT INTO UTILISATEURS VALUES ('Paul', 'paul@','paul', 'AGENTIMMO');
 INSERT INTO UTILISATEURS VALUES ('Anne', 'anne@','anne', 'AGENTIMMO');
 
-PROMPT  ->  Types d appartements initialises 
-
 COMMIT;
-PROMPT
-PROMPT -> FIN DE CREATION
-PROMPT
-PROMPT IMPORTANT : Merci de verifier que les tables suivantes sont bien creees :
-PROMPT AGENTIMMO, PROPRIETAIRES et APPARTEMENTS
-PROMPT ************************************************************
-PROMPT
-SET FEEDBACK ON
