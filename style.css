@@ -1,15 +1,15 @@
 body {
 	display:flex;
-	background-color:crimson;
+	flex-direction : column;
 	width: 100%;
 	padding: 0px;
 	margin: 0px;
 	justify-content: space-between;
-	}
+}
 
 header {
 	display:flex;
-	background-color:white;
+	background-color:crimson;
 	justify-content: center;
 	width: 100%;
 	padding: 0px;
@@ -18,5 +18,8 @@ header {
 
 footer {
 	display:flex;
+	background-color: black;
+	width: 100%;
+	font-color: white;
 	justify-content: space-around;
 }
