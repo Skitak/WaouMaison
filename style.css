@@ -42,7 +42,6 @@ footer {
 	flex-direction: column;
 	justify-content:flex-start;
 	align-items: center;
-	color: white;
 }
 
 form{
@@ -75,6 +74,3 @@ form{
 	border-radius: 5px;
 }
 
-#connection{
-	color: black
-}
