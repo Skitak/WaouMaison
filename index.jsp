@@ -6,16 +6,17 @@ String user = "dbo671982259";
 String pass = "123456789";
 Connection co = DriverManager.getConnection(nom,user,pass);
 
-PreparedStatement suprimerAppartStatement = co.prepareStatement 
-("DELETE FROM APPARTEMENTS WHERE id = ?");
+PreparedStatement suprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
 //Functions
 
 public void supprimerAppart(int num){
 	suprimerAppartStatement.setInt(1, num);
+	suprimerAppartStatement.executeQuery();
 }
 
 public ResultSet showAppart(){
-	return null;
+	Statement statement = co.createStatement();
+	return statement.executeQuerry("Select * from APPARTEMENTS");
 }
 
 %>
