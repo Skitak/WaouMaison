@@ -6,6 +6,9 @@ String user = "dbo671982259";
 String pass = "123456789";
 Connection co = DriverManager.getConnection(nom,user,pass);
 
+session.setAttribute("name","");
+session.setAttribute("role","");
+
 PreparedStatement suprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
 //Functions
 
@@ -22,23 +25,22 @@ public ResultSet showAppart(){
 public void 
 
 %>
-<% %>
+<% 
+String nom = session.getParameter("name");
+String role = session.getParameter("role");
+ResultSet result = showAppart();
+%>
 <jsp:include page="header.jsp" />
 	<div id="body">
-		<div class="appart">
-		<img src="images/Appart1.jpg" height="200" width="300">
-		<p>	Adresse : 				15 rue des beautés</br>
-			Type d'appartement :	HLM
-			Montant :				1 200 000€
-		</p>
-		</div>
-		<div class="appart">
-		<img src="images/Appart2.jpg" height="200" width="300">
-		<p>	Adresse : 				11 avenue de la porte de Vanves</br>
-			Type d'appartement :	HLM
-			Montant :				950 000 €
-		</p>
-		</div>
+		<% try {while (result.next())%{>
+			<div class="appart">
+			<img src=<%="'images/Appart" + (int) Math.floor(Math.random() * 6) + ".jpg'" %> height="200" width="300">
+			<p>	Adresse : 				<%= result.getString(2)%></br>
+				Type d'appartement :	<%= result.getString(1)%>
+				Montant :				<%= result.getFloat(5)%>€
+			</p>
+			</div>
+		<% }}catch(Exception e){}>
 	</div>
 <jsp:include page="footer.jsp" />
 
