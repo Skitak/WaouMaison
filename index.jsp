@@ -1,18 +1,17 @@
 ﻿<%@ page import="java.sql.*"%>
-<!
-Class.forName("com.mysql.jdbc.Driver");
-String nom = "jdbc:mysql://db671982259.db.1and1.com:3306/db671982259";
-String user = "dbo671982259";
-String pass = "123456789";
-Connection co = DriverManager.getConnection(nom,user,pass);
-
-session.setAttribute("name","");
-session.setAttribute("role","");
-
-PreparedStatement supprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
+<%!
+public Connection getConnection(){
+	Class.forName("org.apache.naming.Constants");
+	Class.forName("com.mysql.jdbc.Driver");
+	String nom = "jdbc:mysql://db671982259.db.1and1.com:3306/db671982259";
+	String user = "dbo671982259";
+	String pass = "123456789";
+	return DriverManager.getConnection(nom,user,pass);
+}
 //Functions
 
 public void supprimerAppart(int num){
+	PreparedStatement supprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
 	supprimerAppartStatement.setInt(1, num);
 	supprimerAppartStatement.executeQuery();
 }
@@ -26,7 +25,7 @@ public void connection(String mdp, String login){
 	String log = "Select * from utilisateurs where login = " + login ;
 	statement statement = co.createStatement();
 	ResulSet  result =  statement.executeQuery(log);
-	if (result.getFetchSize() != 0){}
+	if (result.getFetchSize() != 0){
 		if (result.getString(2).equals(mdp)){
 			session.setAttribute("name",result.getString(0));
 			session.setAttribute("role",result.getString(3));
@@ -36,15 +35,12 @@ public void connection(String mdp, String login){
     }else{
 		throw new RunTimeException("ID incorrect (╯°□°）╯︵ ┻━┻");
 	}	
-		
-		
-	
 }
-
 %>
-<% 
-String nom = session.getParameter("name");
-String role = session.getParameter("role");
+<% if (session.getAttribute("connection") == null)
+	session.setAttribute("connection",getConnection());
+String nom = (String) session.getAttribute("name");
+String role =(String) session.getAttribute("role");
 ResultSet result = showAppart();
 %>
 <jsp:include page="header.jsp" />
