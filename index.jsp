@@ -26,7 +26,7 @@ public ResultSet showAppart(){
 		<img src="images/Appart1.jpg" height="200" width="300">
 		<p>	Adresse : 				15 rue des beautés</br>
 			Type d'appartement :	HLM
-			Montant :				12 000,00€
+			Montant :				1 200 000€
 		</p>
 		</div>
 		<div class="appart">
