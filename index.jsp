@@ -6,20 +6,37 @@ String user = "dbo671982259";
 String pass = "123456789";
 Connection co = DriverManager.getConnection(nom,user,pass);
 
-PreparedStatement suprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
+PreparedStatement supprimerAppartStatement = co.prepareStatement("DELETE FROM APPARTEMENTS WHERE id = ?");
 //Functions
 
 public void supprimerAppart(int num){
-	suprimerAppartStatement.setInt(1, num);
-	suprimerAppartStatement.executeQuery();
+	supprimerAppartStatement.setInt(1, num);
+	supprimerAppartStatement.executeQuery();
 }
 
 public ResultSet showAppart(){
 	Statement statement = co.createStatement();
-	return statement.executeQuerry("Select * from APPARTEMENTS");
+	return statement.executeQuery("Select * from APPARTEMENTS");
 }
 
-public void 
+public void connection(String mdp, String login){
+	String log = "Select * from utilisateurs where login = " + login ;
+	statement statement = co.createStatement();
+	ResulSet  result =  statement.executeQuery(log);
+	if (result.getFetchSize() != 0){}
+		if (result.getString(2).equals(mdp)){
+			session.setAttribute("name",result.getString(0));
+			session.setAttribute("role",result.getString(3));
+		}else
+			throw new RunTimeException("Mot de passe incorrect (╯°□°）╯︵ ┻━┻");
+			
+    }else{
+		throw new RunTimeException("ID incorrect (╯°□°）╯︵ ┻━┻");
+	}	
+		
+		
+	
+}
 
 %>
 <% %>
