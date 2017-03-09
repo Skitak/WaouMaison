@@ -14,6 +14,11 @@
 	</div>
 <jsp:include page="footer.jsp" />
 
+<%-- Ajouter l'appart à la BDD
+	 Lancer un timer
+	 Supprimer l'appart à la fin du timer s'il n'est pas vérifié
+	 --%>
+
 <!--
 TypeAppart VARCHAR2(6),
 	Adresse VARCHAR2(75), 

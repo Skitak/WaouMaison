@@ -13,3 +13,5 @@
 		</form>
 	</div>
 <jsp:include page="footer.jsp" />
+
+<%-- Il faut faire une requète sql de vérification et finir par un profil session.--%>
