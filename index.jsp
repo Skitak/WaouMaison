@@ -6,12 +6,17 @@ String user = "dbo671982259";
 String pass = "123456789";
 Connection co = DriverManager.getConnection(nom,user,pass);
 
+PreparedStatement suprimerAppartStatement = co.prepareStatement 
+("DELETE FROM APPARTEMENTS WHERE id = ?");
 //Functions
 
-public void supprimerAppart(String num){
-	//TODO
+public void supprimerAppart(int num){
+	suprimerAppartStatement.setInt(1, num);
 }
 
+public ResultSet showAppart(){
+	return null;
+}
 
 %>
 <% %>
