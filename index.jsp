@@ -33,10 +33,10 @@ public void
 		</p>
 		</div>
 		<div class="appart">
-		<img src="images/Appart1.jpg" height="200" width="300">
-		<p>	Adresse : 				15 rue des beautés</br>
+		<img src="images/Appart2.jpg" height="200" width="300">
+		<p>	Adresse : 				11 avenue de la porte de Vanves</br>
 			Type d'appartement :	HLM
-			Montant :				12 000,00€
+			Montant :				950 000 €
 		</p>
 		</div>
 	</div>
