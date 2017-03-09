@@ -53,6 +53,7 @@ form{
 
 .champ {
 	padding: 20px;
+	color: black;
 }
 
 .appart {
@@ -72,4 +73,8 @@ form{
 .appart img {
 	box-shadow: 0px 0px 10px white;
 	border-radius: 5px;
+}
+
+#connection{
+	color: black
 }
