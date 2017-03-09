@@ -26,7 +26,7 @@ public void connection(String mdp, String login){
 	String log = "Select * from utilisateurs where login = " + login ;
 	statement statement = co.createStatement();
 	ResulSet  result =  statement.executeQuery(log);
-	if (result.getFetchSize() != 0){}
+	if (result.getFetchSize() != 0){
 		if (result.getString(2).equals(mdp)){
 			session.setAttribute("name",result.getString(0));
 			session.setAttribute("role",result.getString(3));
