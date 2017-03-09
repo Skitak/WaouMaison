@@ -17,7 +17,7 @@
 	</form> -->
 	<form method="post" action="" id="inscription">
 		<fieldset>
-			<legend>connection:</legend>
+			<legend id="connection">connection:</legend>
 				<div class="champ"><p>Login:<br></p><input type="text" name="Login"></div>
 				<div class="champ"><p>Password:<br></p><input type="password" name="Password"></div>
 				<input type="submit" value="Envoyer">
