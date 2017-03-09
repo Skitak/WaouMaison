@@ -19,6 +19,8 @@ public ResultSet showAppart(){
 	return statement.executeQuerry("Select * from APPARTEMENTS");
 }
 
+public void 
+
 %>
 <% %>
 <jsp:include page="header.jsp" />
