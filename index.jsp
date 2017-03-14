@@ -1,19 +1,19 @@
 ﻿<%@ page import="java.sql.*"%>
+<%@ page errorPage="Error.jsp" %>
 <%!
 
 Connection co = null;
 String err = null;
 public Connection getConnectionToBdd(){
 	try{
-		Class.forName("org.apache.naming.Constants");
 		Class.forName("com.mysql.jdbc.Driver");
-	}catch (Exception e){}
-	String nom = "jdbc:mysql://db671982259.db.1and1.com:3306/db671982259";
-	String user = "dbo671982259";
-	String pass = "123456789";
+	}catch (Exception e){throw new RuntimeException(e.getMessage());}
+	String nom = "jdbc:mysql://vs-wamp:3306/dut2_bouquin?";
+	String user = "bouquin";
+	String pass = "";
 	try {
-		co = DriverManager.getConnection(nom,user,pass);
-	} catch (Exception e){}
+		co = DriverManager.getConnection(nom + "user=" + user + "&password=" + pass);
+	} catch (Exception e){ throw new RuntimeException(e.getMessage() + " first"); }
 	return co;
 }
 //Functions
@@ -29,36 +29,28 @@ public void supprimerAppart(int num){
 
 public ResultSet showAppart(){
 	ResultSet resultSet = null;
+	Statement statement = null;
+	if (co == null)
+		throw new RuntimeException("Connection empty");
 	try { 
-		Statement statement = co.createStatement();
+		 statement = co.createStatement();
+		
+	} catch (Exception e){throw new RuntimeException(e.getMessage() + " Statement creation");}
+	
+	try {
 		resultSet = statement.executeQuery("Select * from APPARTEMENTS");
-	} catch (Exception e){err = e.getLocalizedMessage();}
+	} catch (Exception e){
+		throw new RuntimeException(e.getMessage() + " Querry");
+	}
 	return resultSet;
 }
 
-/*public void connection(String mdp, String login){
-	String log = "Select * from utilisateurs where login = " + login ;
-	Statement statement = null;
-	ResultSet  result =  null;
-	try {
-		statement = co.createStatement();
-		result =  statement.executeQuery(log);
-	} catch (Exception e){}
-	if (result.getFetchSize() != 0){
-		if (result.getString(2).equals(mdp)){
-			session.setAttribute("name",result.getString(0));
-			session.setAttribute("role",result.getString(3));
-		}else
-			throw new RunTimeException("Mot de passe incorrect (╯°□°）╯︵ ┻━┻");
-			
-    }else{
-		throw new RunTimeException("ID incorrect (╯°□°）╯︵ ┻━┻");
-	}	
-}*/
+
 %>
 
 <% if (session.getAttribute("connection") == null)
 	session.setAttribute("connection",getConnectionToBdd());
+co = (Connection) session.getAttribute("connection");
 String nom = (String) session.getAttribute("name");
 String role =(String) session.getAttribute("role");
 ResultSet result = showAppart();
